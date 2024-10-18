@@ -55,3 +55,11 @@ document
             });
             }
         });
+
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        // Add event listener to toggle the menu
+        hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        });

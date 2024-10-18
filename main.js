@@ -31,10 +31,17 @@ document
               document.getElementById("nameForm").value = "";
               document.getElementById("subjectForm").value = "";
               document.getElementById("messageForm").value = "";
-              alert("Process Completed Successfully!");
+            //   alert("Process Completed Successfully!");
+              Swal.fire("Process Completed Successfully!");
             })
             .catch((error) => {
-              console.error("Error:", error);
+            //   console.error("Error:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
               //if error, show error message
             });
         });

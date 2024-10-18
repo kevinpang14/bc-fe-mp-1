@@ -393,23 +393,83 @@ footer {
 
   .hamburger {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 999;
+    position: relative;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
-
+  /*
   .nav-menu {
     display: none;
     position: absolute;
     top: 60px;
     right: 0;
-    background-color: #333;
+    background-color: var(--nav-bg);
     width: 100%;
     text-align: center;
   }
 
+  
   .nav-menu ul {
     flex-direction: column;
   }
 
   .nav-menu.active {
     display: block;
+  } */
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--nav-bg);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  /* When active, slide the menu into view */
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+
+  /* Styling the links in the expanded menu */
+  .nav-menu ul {
+    flex-direction: column;
+    padding-inline-start: 0;
+  }
+
+  .nav-menu li {
+    padding: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .nav-menu a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    color: #58cdfbcc;
+    border-bottom: 2px solid #58cdfb; /* Add a hover effect */
+  }
+
+  .nav-menu a:active {
+    color: hsl(196, 100%, 81%);
   }
 }

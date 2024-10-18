@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <meta name="description" content="Portofolio Kevin Pangestu" />
-    <meta name="keywords" content="Portofolio Kevin Pangestu" />
     <meta name="author" content="Kevin Pangestu" />
     <title>Kevin Pangestu</title>
   </head>
@@ -142,36 +141,36 @@
           <div class="container justify-content-center">
             <div class="contact-form">
               <h2>Contact Me</h2>
-              <form>
+              <form id="postForm">
                 <div class="form-group">
-                  <label for="name">Name</label>
+                  <label for="nameForm">Name</label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="nameForm"
+                    name="partnerName"
                     placeholder="Your Name"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="email">Email</label>
+                  <label for="subjectForm">Subject</label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Your email"
+                    type="text"
+                    id="subjectForm"
+                    name="subject"
+                    placeholder="Subject..."
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="subject">Subject</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
+                  <label for="messageForm">Message</label>
+                  <textarea
+                    type="textarea"
+                    id="messageForm"
+                    name="message"
                     placeholder="Hi there!"
                     required
-                  />
+                  ></textarea>
                 </div>
                 <button type="submit">Submit</button>
               </form>
@@ -184,7 +183,50 @@
     </div>
     <!-- MAIN END -->
     <!-- FOOTER START -->
-    <footer>&copy Copyright 2024 | Kevin Pangestu.</footer>
+    <footer>&copy 2024 | Kevin Pangestu</footer>
     <!-- FOOTER END -->
+
+    <script>
+      document
+        .getElementById("postForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); //prevent form from submitting and refreshing the page
+
+          //get form data
+          const partnerName = document.getElementById("nameForm").value;
+          const subject = document.getElementById("subjectForm").value;
+          const message = document.getElementById("messageForm").value;
+          //create form data object
+          const formData = {
+            to: "kevin.pangestu14@gmail.com",
+            name: partnerName,
+            subject: subject,
+            text: message,
+          };
+
+          //send form data to server
+          fetch("https://lumoshive-academy-email-api.vercel.app/send-email", {
+            method: "POST",
+            headers: {
+              "x-api-key": "RJS1-202412", //set api key by campID
+              "Content-Type": "application/json", //set content type to json
+              "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(formData), //convert form data to json
+          })
+            .then((response) => response.json()) //parse response to json
+            .then((data) => {
+              //if success
+              document.getElementById("nameForm").value = "";
+              document.getElementById("subjectForm").value = "";
+              document.getElementById("messageForm").value = "";
+              alert("Process Completed Successfully!");
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              //if error, show error message
+            });
+        });
+    </script>
   </body>
 </html>

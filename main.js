@@ -15,6 +15,15 @@ document
             text: message,
           };
 
+          if (!partnerName || !subject || !message) {
+            // Trigger warning if any field is empty
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "All fields are required!",
+              footer: "<p>Please fill out all fields before submitting.</p>",
+            });
+          } else{
           //send form data to server
           fetch("https://lumoshive-academy-email-api.vercel.app/send-email", {
             method: "POST",
@@ -44,4 +53,5 @@ document
               });
               //if error, show error message
             });
+            }
         });

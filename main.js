@@ -37,10 +37,11 @@ document
             .then((response) => response.json()) //parse response to json
             .then((data) => {
               //if success
-              document.getElementById("nameForm").value = "";
-              document.getElementById("subjectForm").value = "";
-              document.getElementById("messageForm").value = "";
-            //   alert("Process Completed Successfully!");
+              // document.getElementById("nameForm").value = "";
+              // document.getElementById("subjectForm").value = "";
+              // document.getElementById("messageForm").value = "";
+              // alert("Process Completed Successfully!");
+              Document.getElementById("postForm").reset();
               Swal.fire("Process Completed Successfully!");
             })
             .catch((error) => {
@@ -58,8 +59,12 @@ document
 
         const hamburger = document.getElementById("hamburger");
         const navMenu = document.getElementById("nav-menu");
+        const blurLayer = document.getElementsByClassName("blur-layer")[0]; // Get the blur layer element, choose the first element
 
         // Add event listener to toggle the menu
         hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        });
+        navMenu.classList.toggle("active"); // Add this line to toggle the menu
+        blurLayer.classList.toggle("active"); // Add this line to toggle the blur layer
+        });    
+
+        

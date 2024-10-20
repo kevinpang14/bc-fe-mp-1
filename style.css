@@ -213,6 +213,12 @@ h1 {
   overflow: hidden;
 }
 
+.introduction h1 {
+  font-size: 3rem;
+  padding: 1.2rem;
+  text-align: center;
+}
+
 .introduction p {
   padding-right: 3rem;
   line-height: 2rem;
@@ -239,6 +245,10 @@ h1 {
 
 .intro-image:hover {
   transform: scale(1.1);
+}
+
+.intro-image.mobile {
+  display: none;
 }
 /* INTRODUCTION END */
 
@@ -479,6 +489,7 @@ footer {
     /* width: 100%; */
     height: 100vh;
     padding-top: 2rem;
+    z-index: 99;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -486,6 +497,7 @@ footer {
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
+
   /* When active, slide the menu into view */
   .nav-menu.active {
     transform: translateX(0);
@@ -517,5 +529,13 @@ footer {
 
   .nav-menu a:active {
     color: hsl(196, 100%, 81%);
+  }
+
+  .intro-image.desktop {
+    display: none;
+  }
+
+  .intro-image.mobile {
+    display: block;
   }
 }

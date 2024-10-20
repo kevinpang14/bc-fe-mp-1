@@ -323,6 +323,8 @@ h3 {
 }
 /* TESTIMONIALS END */
 
+/* FORM START */
+
 .contact-form {
   width: 30%;
 }
@@ -344,12 +346,35 @@ h3 {
   font-weight: bold;
 }
 
-.form-group input {
+.inputForm {
+  font-family: Arial, Helvetica, sans-serif;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
 }
+
+.inputForm:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.submitForm {
+  background-color: var(--nav-text-hvr);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submitForm:hover {
+  background-color: var(--footer-bg);
+}
+
+/* FORM END */
 
 footer {
   background-color: var(--footer-bg);

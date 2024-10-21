@@ -520,19 +520,17 @@ footer {
   }
 
   .nav-menu a {
-    color: whitesmoke;
-    text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
   }
 
   .nav-menu a:hover {
     color: #58cdfbcc;
-    border-bottom: 2px solid #58cdfb; /* Add a hover effect */
   }
 
   .nav-menu a:active {
-    color: hsl(196, 100%, 81%);
+    color: var(--nav-text-act);
+    text-decoration: none;
   }
 
   .intro-image.desktop {
